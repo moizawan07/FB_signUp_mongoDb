@@ -1,0 +1,12 @@
+@import "tailwindcss";
+.errormsg{
+    font-size: 13px;
+    color: crimson;
+    margin-left: 4px;
+}
+.sucess{
+    font-size: 13px;
+    color: green;
+    margin-left: 4px;
+    margin-bottom: 10px;
+}
