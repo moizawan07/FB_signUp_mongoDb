@@ -1,24 +1,43 @@
 import {useForm} from 'react-hook-form'
-import axios from 'axios'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+
+
 const  Signup = () =>  {
+
   const {register, handleSubmit, formState : {errors}} = useForm()
   const [signUpMsg , setSignUpMsg]  = useState(null)
+  let navigate = useNavigate(null)
 
   const signUpSubmit = async (data) => {
     let {userName, userEmail, userPassword, userAge} = data
 
 //    Here Send The Data In Backend For The SignUp 
 try {
-    
-    let response = await axios.post('http://localhost:3000/signUp', data)
-    console.log(response.data);
+    let res = await fetch('http://localhost:3000/signUp', {
+      method : 'POST',
+      headers : {'Content-Type': 'application/json'},
+      body : JSON.stringify(data)
+    })
 
-    setSignUpMsg(response.data.serverMsg)
+    let finalRes = await res.json()
+
+    // Check Status Code wise Render If Status not 201 Means  
+    // Error Comes So Cannot Redirect in Login Page
+    // if equal 201 Means Sucess Register so Redirect to Login
+
+     if(res.status != 201){
+      return setSignUpMsg(finalRes.serverMsg)
+     }
+
+
+     setSignUpMsg(finalRes.serverMsg)
+
+     navigate('/login')
 } 
 catch (error) {
-    console.log(error.response);
-    setSignUpMsg(error.response.data.serverMsg)
+    console.log(error);
+    // setSignUpMsg(error.response.data.serverMsg)
 }
   }
 
@@ -97,7 +116,8 @@ catch (error) {
                 className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
                 {...register('userAge', {
-                    required : 'Age is Required'
+                    required : 'Age is Required',
+                    validate: value => value >= 18 || 'Age must be greater than 17'
                 })}
               />
             {errors.userAge && <p className='errormsg'>{errors.userAge.message}</p>}

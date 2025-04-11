@@ -10,3 +10,52 @@
     margin-left: 4px;
     margin-bottom: 10px;
 }
+
+/* Hoem Page css */
+
+@keyframes firework-explosion {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .show-fireworks {
+    animation: firework-explosion 2s ease-out infinite;
+  }
+  
+  .fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://media.giphy.com/media/3o7aD4h4XoVsg24hlC/giphy.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    animation: firework-explosion 2s ease-out infinite;
+  }
+  
+  .animate__fadeIn {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .animate__fadeIn.animate__delay-1s {
+    animation-delay: 1s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

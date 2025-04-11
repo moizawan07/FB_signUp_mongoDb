@@ -5,14 +5,12 @@ const signUp = async (req, res) => {
     console.log('controlller ma');
     
   let {userName, userEmail, userPassword, userAge} = req.body
-
-  console.log('age type', typeof userAge);
-  
   
   try {
      
-    let passSalt = await bcrypt.genSalt(10)
-     let hashPass = await bcrypt.hash(userPassword, passSalt)   
+     let hashPass = await bcrypt.hash(userPassword, 10)
+     console.log('hashpass', hashPass);
+        
 
     let userRegister = await signupModel.create({
         name : userName,
