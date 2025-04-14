@@ -1,32 +1,15 @@
 import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
  
-  const handleLogout = () => {
-    // Clear cookies, localStorage, or call API to logout
-    alert("You have been logged out!");
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
 
       {/* Navbar */}
-      <nav className="bg-gray-950  py-4 shadow-md">
-        <div className="container mx-auto flex justify-between items-center px-6">
-          <div className="text-3xl font-bold text-white hover:text-gray-300">
-            <a href="#">MyApp</a>
-          </div>
-          <div className="space-x-8">
-            <a href="#" className="text-white hover:text-gray-300">Home</a>
-            <a href="#" className="text-white hover:text-gray-300">Features</a>
-            <a href="#" className="text-white hover:text-gray-300">About</a>
-            <a href="#" className="text-white hover:text-gray-300">Contact</a>
-            <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all duration-300">
-              Logout
-            </button>
-          </div>
-        </div>
-      </nav>
+     <Navbar />
 
       {/* Hero Section */}
       <section className="flex items-center justify-center h-screen bg-cover bg-center relative text-center"
@@ -85,9 +68,7 @@ const HomePage = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-gray-900 text-center py-4 mt-10">
-        <p className="text-white mb-4">All Rights Reserved &copy; 2025</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

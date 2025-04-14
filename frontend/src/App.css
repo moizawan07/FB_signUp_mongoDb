@@ -1,4 +1,7 @@
 @import "tailwindcss";
+input, textarea{
+  outline: none;
+}
 .errormsg{
     font-size: 13px;
     color: crimson;
@@ -12,7 +15,10 @@
 }
 
 /* Hoem Page css */
-
+ .navbar a.active{
+  color: aqua;
+ }
+  
 @keyframes firework-explosion {
     0% {
       transform: scale(0);
@@ -57,5 +63,17 @@
     100% {
       opacity: 1;
     }
+  }
+  
+
+  /* Products Page csss */
+  .errMsg{
+    font-size: 13px;
+    color: crimson;
+    position: static;
+    top: 0px;
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
   }
   

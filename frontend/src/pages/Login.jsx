@@ -34,7 +34,10 @@ try {
 
 
     setLoginMsg(finalRes.serverMsg)
-    navigate('/home')
+    //  1 second Baat page Change Krwa Rha
+    setTimeout(() => {
+      navigate('/home')
+    }, 1000);
     
 
 
@@ -48,7 +51,8 @@ catch (error) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className=" bg-white px-6 py-10 rounded shadow-md w-[430px] rounded">
-          <h2 className="text-2xl font-semibold text-center mb-6">Sign Up</h2>
+          <h2 className="text-2xl font-semibold text-center mb-6">Sign In</h2>
+
           <form onSubmit={handleSubmit(loginSubmit)}>
 
             <div className="relative mb-4">
@@ -106,6 +110,9 @@ catch (error) {
              Login
             </button>
           </form>
+          <p className='text-center text-gray-500 text-[15px] mt-2'>Don't have an account?
+               <span onClick={() => navigate('/')} className='font-bold text-blue-400 cursor-pointer'> Signup </span>
+             </p>
         </div>
       </div>
     );

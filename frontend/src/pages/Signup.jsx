@@ -32,8 +32,11 @@ try {
 
 
      setSignUpMsg(finalRes.serverMsg)
-
-     navigate('/login')
+    //  1 second Baat page Change Krwa Rha
+        setTimeout(() => {
+          navigate('/login')
+        }, 1000);
+     
 } 
 catch (error) {
     console.log(error);
@@ -141,6 +144,9 @@ catch (error) {
               Sign Up
             </button>
           </form>
+             <p className='text-center text-gray-500 text-[15px] mt-2'>Already have an account?
+               <span onClick={() => navigate('/login')} className='font-bold text-blue-400 cursor-pointer'> Login </span>
+             </p>
         </div>
       </div>
     );

@@ -1,0 +1,4 @@
+## ENV FILE VARIABLES 👇
+
+# DB_URI= db String Link 
+# JWT_SECRET= Scret Key 
